@@ -6,3 +6,5 @@ It is designed to work with a Donner N25, but you should be able to use it with 
 It is mostly based on some youtube videos:
 
 https://www.youtube.com/watch?v=KRm_GICiPIQ&pp=ygUVbWlkaSBwaWFubyBqYXZhc2NyaXB0
+
+This is vanilla javaScript with no drivers! It is super easy to work with.
