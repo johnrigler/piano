@@ -8,3 +8,6 @@ It is mostly based on some youtube videos:
 https://www.youtube.com/watch?v=KRm_GICiPIQ&pp=ygUVbWlkaSBwaWFubyBqYXZhc2NyaXB0
 
 This is vanilla javaScript with no drivers! It is super easy to work with.
+
+Live demo: https://rigler.org/piano
+
