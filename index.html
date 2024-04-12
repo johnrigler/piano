@@ -1,16 +1,36 @@
 <html>
-  <head>
-       <script src='ethers-6.6.0.umd.min.js'></script>
-       <script src='lib.js?23sd234asf'></script>
-       <script src='midi.js?a24422342sdd'></script>
-  </head>
-  <body>
-	  <div id='body'>
-              <div id='header'></div>
-              <div id='top'></div>
-              <div id='middle'></div>
-              <div id='bottom'></div>
-              <div id='footer'></div>
-          </div>
-  </body>
+<head>
+    <script src='ethers-6.6.0.umd.min.js'></script>
+    <script src='lib.js?23sd234asf'></script>
+    <script src='midi.js?a24422342sdd'></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+</head>
+<body>
+        <canvas id="demoCanvas" width="500" height="300"></canvas>
+    <div id='body'>
+        <div id='header'></div>
+        <div id='top'></div>
+        <div id='middle'></div>
+        <div id='bottom'></div>
+        <div id='footer'></div>
+    </div>
+</body>
 </html>
+<script>
+    // https://createjs.com/getting-started/easeljs
+    // this tool allows for animation and other cool stuff.
+    function init() {
+        alert("init");
+        f.stage = new createjs.stage("demoCanvas");
+        f.circle = new createjs.Shape();
+        f.circle.graphics.beginFill("DeepSkuBlue").drawCircle(0, 0, 50);
+        f.circle.x = 100;
+        f.circle.y = 100;
+        f.stage.addChild(circle);
+        f.stage.update();
+
+    };
+
+    init();
+
+</script>
