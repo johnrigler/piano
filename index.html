@@ -17,6 +17,186 @@
 </body>
 </html>
 <script>
+   // This is the rootstock code
+
+    rsk = new Array();
+
+rsk.apikey="DaOC9piANAqV5tS99TF53ECufS6Rjr-T"
+rsk.url="https://rpc.testnet.rootstock.io/DaOC9piANAqV5tS99TF53ECufS6Rjr-T"
+rsk.ws="wss://rpc.testnet.rootstock.io/DaOC9piANAqV5tS99TF53ECufS6Rjr-T"
+
+rsk.contract="0xa9A8a4d87c140022BAcf17E6a787A25BB37A5B1a"
+
+rsk.abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "cashout",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "artifact",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "body",
+				"type": "string"
+			}
+		],
+		"name": "mapArtifact",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "message1",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "message2",
+				"type": "string"
+			},
+			{
+				"internalType": "address[]",
+				"name": "index",
+				"type": "address[]"
+			}
+		],
+		"name": "tell",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "map",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+if(window.ethereum != null)
+{
+   rsk.metamask = new ethers.BrowserProvider(window.ethereum);
+   rsk.freeTalk = new ethers.Contract(rsk.contract,rsk.abi,rsk.metamask.getSigner());
+}
+
+web3='https://rpc.testnet.rootstock.io/DaOC9piANAqV5tS99TF53ECufS6Rjr-T'
+
+rsk.explorer="https://rootstock-testnet.blockscout.com/api/v2/addresses/"
+
+// https://stackoverflow.com/questions/14643617/create-table-using-javascript
+rsk.body = document.body;
+  tbl = document.createElement('table');
+  tbl.style.width = '100px';
+  tbl.style.border = '1px solid black';
+
+
+fetch(rsk.explorer + rsk.contract + "/transactions?filter=to%20%7C%20from")
+	.then( x => x.json() )
+        .then( x =>
+               {
+               rsk.history = x;
+               for (let i = 0; i < rsk.history.items.length; i++)
+                   {
+         	   const tr = tbl.insertRow();
+                   const td = tr.insertCell();
+                   td.appendChild(document.createTextNode(
+                         rsk.history.items[i].timestamp));
+                   td.style.border = '1px solid black';
+	           const td2 = tr.insertCell();
+		   td2.style.border = '1px solid black';
+
+                   td2.appendChild(document.createTextNode(
+                         rsk.history.items[i].raw_input));
+                   }
+               })
+
+rsk.body.appendChild(tbl);
+
+
+// Can't get metamask write working right now
+// Going to explore "Zero-ish Knowledge-ish proofs"
+
+/*
+
+timmy () 
+{ 
+    : way to go;
+    : : increase level
+}
+# declare -f timmy | cksum 
+# 803881700 55
+# 0.00038817
+
+remi () 
+{ 
+    : outstanding progress;
+    : : increase level
+}
+# declare -f remi | cksum
+# 4240472164 65
+# 0.00042404 
+
+*/
+
+   
+
+    
     // https://createjs.com/getting-started/easeljs
     // this tool allows for animation and other cool stuff.
     function init() {
